@@ -262,7 +262,7 @@ int compute(float distance){
 
 void estimateDistance(int front, int side, float loc[2]){
   //
-  if (front > 310) {
+  if (front > 310) { 
     loc[0] = side;
     loc[1] = 0;
     return;
@@ -294,7 +294,7 @@ float atan2(int y,int x){
   {
     factor = (2*i) + 1;
     evenOdd = pow(-1,i%2);
-    result += evenOdd * pow(y_over_x,factor) * (1/factor); //57.295 is 180/pi
+    result += evenOdd * pow(y_over_x,factor) * (1/factor); 
     //Serial.print("\t ");Serial.print(factor);
     //Serial.print("\t ");Serial.print(evenOdd);
     //Serial.print("\t ");Serial.println(result);

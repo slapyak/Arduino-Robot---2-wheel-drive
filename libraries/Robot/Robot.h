@@ -22,8 +22,6 @@ class Robot
     void setWheelRadius(int radius);
     //drive functions
     void setSpeed(int speed);
-    void setDirection(int dir);
-    void setDirection(int right, int left);
     void driveForward(int speed=-1); //speed is optional
     void driveReverse(int speed=-1); //speed is optional
     void drive(int speed=-1, int dir=1);
@@ -31,11 +29,13 @@ class Robot
     void stop();
     void coast();
     int  pivot(int angle, int offset = 100);
-    void pivot(int dir, int speed, int type);
+    void pivot(int dir=1, int speed=-1, int type=0);
     int  turn_ang(int angle, int speed=-1);
     void turn(int dir);
   private:
     void _go(int left, int right); //both arguments are optional - default to prior speed
+    void setDirection(int dir);
+    void setDirection(int right, int left);    
     void _pivotLeft(int dir=1, int speed=-1);
     void _pivotRight(int dir=1, int speed=-1);
     void _pivotCenter(int dir=1, int speed=-1);

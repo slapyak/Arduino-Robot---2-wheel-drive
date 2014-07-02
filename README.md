@@ -17,5 +17,5 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Who do I talk to? ###
 
-* David Wernli - dwernli2 @ ...
+* David Wernli - dwernli2 @ [our university email]
 * Submit any question or issues to the bug tracker here on BitBucket.

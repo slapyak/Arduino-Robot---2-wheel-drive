@@ -5,6 +5,8 @@
 #ifndef Robot_h
 #define Robot_h
 #include "Arduino.h"
+#include <SoftwareSerial.h>
+#include <TinyGPS.h>
 
 
 static int _Speed;
@@ -32,6 +34,11 @@ class Robot
     void pivot(int dir=1, int speed=-1, int type=0);
     int  turn_ang(int angle, int speed=-1);
     void turn(int dir);
+    //sensor functions
+    void ping(int pingPin);
+    float IRdistance(IRpin);
+    //GPS Functions
+    void GPSinit();
   private:
     void _go(int left, int right); //both arguments are optional - default to prior speed
     void setDirection(int dir);

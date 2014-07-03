@@ -11,6 +11,8 @@
   #define _ipr (WHEELDIA*31.41592) //inches per 10 rotations of the wheel
   #define _robotCirc (2*WIDTH*3.14159) //circumf pivoting on a wheel
   #define DB 0 //debug variable to control serial print statements for all functions
+  #define GPS 1 //set to 1 if GPS is to be enabled. Requires software 
+  				//serial connection to GPS module on pins 3 & 4 of arduinoMega
 
 /* ***************************  INITIALIZE  ******************************* */
 /* Robot function must be called to start the robot up, called as
@@ -21,13 +23,15 @@
 Robot::Robot(int serialStart=1){
 	_alive = 1;  				//global confirmation of initialization
 	_Speed = 0;					//preset speed to stop any inadvertant movement
+	if (GPS) { TinyGPS gps; 
+	SoftwareSerial ss(4, 3); }
 	Serial.println("Robot Initialized.");
-	if (serialStart==1)
-	{	 	
-	  Serial.begin(9600);
-	}
+	SerialStatus = serialStart;
  }
-
+Robot::start(){
+	Serial.begin(9600);
+	if (GPS) { ss.begin(4800); }
+}
 /* ************************  SETUP FUNCTIONS  ***************************** */
 /* Fuctions setLeft, setRight used to configure the h-bridge. */
 void Robot::setLeft(int enPin, int hPin1, int hPin2){	
@@ -84,6 +88,48 @@ void Robot::swapDirectionPins(char wheel[]){
 void Robot::swapDirectionPins(){
 	swapDirectionPins("l");
 	swapDirectionPins("r");
+ }
+
+
+/* ************************  SENSOR FUNCTIONS  ************************** */
+
+/* --------------- ping ---------------
+ * gets the value from the Ping sensor and returns a distance in cm
+ */
+int Robot::ping(int pingPin) {
+  // establish variables for duration of the ping,
+  // and the distance result in inches and centimeters:
+  long duration, cm;
+  // The PING))) is triggered by a HIGH pulse of 2 or more microseconds.
+  // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
+  pinMode(pingPin, OUTPUT);
+  digitalWrite(pingPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(pingPin, HIGH);
+  delayMicroseconds(5);
+  digitalWrite(pingPin, LOW);
+  pinMode(pingPin, INPUT);
+  duration = pulseIn(pingPin, HIGH);
+  // convert the time into a distance
+  // The speed of sound is 340 m/s or 29 microseconds per centimeter.
+  // The ping travels out and back, so to find the distance of the
+  // object we take half of the distance travelled.
+  cm = duration / 29 / 2;
+  return cm ;
+ }
+ 
+/* --------------- IRdistance ---------------
+ * gets the value from the Sharp IR sensor and returns a distance in cm
+ * calculated by linear approximation.
+ */
+float Robot::IRdistance(int sensorPin) {
+  // R = 1/(0.00004*V -0.0037) - 0.5
+  // discovered by experimentation
+  int val = analogRead(sensorPin);
+  int mV = (val * referenceMv) / 1023;
+  float dist = -0.5;
+  dist += 1/(0.04*val/1000 - 0.0037);
+  return dist
  }
 
 /* ************************  MOVEMENT FUNCTIONS  ************************** */

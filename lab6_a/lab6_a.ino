@@ -45,7 +45,7 @@ float Kd = 0;
 const String headers = "FR\tRT\tDIST\tANG\tERR\tP term \tI term\tD term\tOutput\tT(ms) \tDIFF";
 
   /*--- intitialize ---*/
-Robot robo(1,1);    //start the Robot, with Serial debugging ON
+Robot robo;    //start the Robot, with Serial debugging ON
                   //refer to Robot class definition for capabilities and code
 /* --------------------------------------------------------------------
  * -----------                   SETUP                     ------------

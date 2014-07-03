@@ -15,6 +15,7 @@ void serialCommand(char ch);
 void wallfollower();
 void estimateDistance(int front, int side, float loc[2]);
 float atan2(int y,int x);
+long readVcc();
 //void avoidance(){}  //not utilized
 //void turn(){}       //not utilized
 
@@ -37,9 +38,11 @@ const int r_hPin2 = 2;
 
   /*--- globals ---*/
 int mode = 0;
-int speed = 80;        //speed in PWM format [0 - 255]
-float Kp = 10;         //temporary variable to allow tuning of gains without uploading everytime
-const String headers = "FR\tRT\tDIST\tANG\tERR\tP term \tI term\tD term\tOutput\tTime(ms)";
+int speed = 50;        //speed in PWM format [0 - 255]
+float Kp = 7;         //temporary variable to allow tuning of gains without uploading everytime
+float Ki = 0;
+float Kd = 0;
+const String headers = "FR\tRT\tDIST\tANG\tERR\tP term \tI term\tD term\tOutput\tT(ms) \tDIFF";
 
   /*--- intitialize ---*/
 Robot robo(1,1);    //start the Robot, with Serial debugging ON
@@ -115,11 +118,20 @@ void serialCommand(char ch){
     mode = 0;
     Serial.println("Go Forward! Move Ahead! It's not too late!");
     Serial.println(headers);
+  } else if (ch == 'p')  { //user selected wallfollower mode
+    Kp += Serial.parseFloat();
+    Serial.print("Kp updated to : ");  Serial.println(Kp);
+  } else if (ch == 'i')  { //user selected wallfollower mode
+    Ki += Serial.parseFloat();
+    Serial.print("Ki updated to : ");  Serial.println(Ki);
+  } else if (ch == 'd')  { //user selected wallfollower mode
+    Kd += Serial.parseFloat();
+    Serial.print("Kd updated to : ");  Serial.println(Kd);
   } else if (ch == '+')  { //user selected wallfollower mode
-    Kp += (float)Serial.parseInt();
-    Serial.print("Kp updated to : ");
-    Serial.println(Kp);
-  } else if (ch == '1')  { //user selected mode
+    speed = Serial.parseInt();
+    robo.setSpeed(speed);
+    Serial.print("SPEED updated to : ");  Serial.println(speed);
+  } else if (ch == '2')  { //user selected mode
     mode = 2;  //just drive - test function
   } else {
     Serial.print(ch);
@@ -133,9 +145,9 @@ void serialCommand(char ch){
  * robot should start at a point between 5cm and 1.5m from the wall to work well.
  */
 void wallfollower(){  
-  const int ComputeMax = 350;    //the maximum allowed/expected error correction value: +-
-                                 //lowering this value makes the robot more responsive to error output
-  const int DiffMax = 100;       //the maximum wheel differential for turning, see robo.drive_dif()
+  const int ComputeCeil  =  300;   //the maximum allowed/expected error correction value: +-
+  const int ComputeFloor = -300;   //lowering this value makes the robot more responsive to error output
+  const int DiffMax = 60;        //the maximum wheel differential for turning, see robo.drive_dif()
   const float maxAngle = 30;     //maximum approach angle permitted
   static int frontDistance = 0;  //input variable for front sensor distance (cm)
   static int sideDistance = 0;   //input variable for side sensor distance (cm)
@@ -155,10 +167,11 @@ void wallfollower(){
   //figure the actual distance and approach angle based on the returned sensor values
   estimateDistance(sideDistance, frontDistance, location);
   //logging statements, formatted as tab-separated-data for import to excel
-  if(LOG){ Serial.print(""); Serial.print(frontDistance); }
-  if(LOG){ Serial.print(" \t"); Serial.print(sideDistance); }
-  if(LOG){ Serial.print(" \t"); Serial.print(location[0]); }
-  if(LOG){ Serial.print(" \t"); Serial.print(location[1]); }
+  if(LOG){ 
+    Serial.print(""); Serial.print(frontDistance); 
+    Serial.print(" \t"); Serial.print(sideDistance); 
+    Serial.print(" \t"); Serial.print(location[0]); 
+    Serial.print(" \t"); Serial.print(location[1]); }
   //
   if (location[1] > maxAngle)  {
     //if we're approaching too fast, or there's an upcoming inside corner
@@ -169,27 +182,30 @@ void wallfollower(){
     //if the angle is less than the max approach
     //calculate the PID error correction
     differential = compute(location[0]);
-    if (differential > 0){  //if PIR output is telling us to increase distance
-      differential = min(ComputeMax, differential); //limit the differntial used to a certain point
-    } else {                //PIR is telling us to reduce distance
-      differential = max(-ComputeMax, differential); 
-    }
+    differential = min(ComputeCeil, differential); //limit the differntial used to a certain point
+    differential = max(ComputeFloor, differential); 
     //map the differential recieved to the differential required for the function, 
     //drive_dif() is limited to -100 to 100 for wheel speeds,
     // we are limiting this further to prevent the robot from pivoting on a single wheel.
-    differential = map(differential, -ComputeMax, ComputeMax, DiffMax, -DiffMax); 
+    differential = map(differential, ComputeFloor, ComputeCeil, DiffMax, -DiffMax); 
   }
   //DO EET!
   robo.drive_dif(differential);
   //data logging...
-  if(LOG){ Serial.print("\t");Serial.println(differential); }
+  if(LOG){ 
+    Serial.print("\t");
+    Serial.print(differential);
+    //Serial.print("\t");
+    //Serial.println(readVcc());
+    Serial.println();
+  }
 }
   
 int compute(float distance){
   const int setPoint = 40;      //goal distance from the wall in cm
-  //static float Kp = 10;          //P coefficient
-  const float Ki = 0;      //I coefficient
-  const float Kd = 0;          //D coefficient
+  //const float Kp = 10;          //P coefficient
+  //const float Ki = 0;      //I coefficient
+  //const float Kd = 0;          //D coefficient
   static float lastError = 0;  //the value of the last error - stored between function calls
   static float errorSum = 0;   //sum of all errors - stored between calls
   static float dError = 0;         //change in error between this and last function call
@@ -227,7 +243,7 @@ int compute(float distance){
 
 void estimateDistance(int front, int side, float loc[2]){
   //
-  if (front > 310) { 
+  if (front > 250) { 
     loc[0] = side;
     loc[1] = 0;
     return;
@@ -271,4 +287,30 @@ float atan2(int y,int x){
     return 1.571-result;
   }
  }
+ 
+ long readVcc() {
+  // Read 1.1V reference against AVcc
+  // set the reference to Vcc and the measurement to the internal 1.1V reference
+  #if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
+    ADMUX = _BV(REFS0) | _BV(MUX4) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
+  #elif defined (__AVR_ATtiny24__) || defined(__AVR_ATtiny44__) || defined(__AVR_ATtiny84__)
+    ADMUX = _BV(MUX5) | _BV(MUX0);
+  #elif defined (__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__)
+    ADMUX = _BV(MUX3) | _BV(MUX2);
+  #else
+    ADMUX = _BV(REFS0) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
+  #endif  
+ 
+  delay(2); // Wait for Vref to settle
+  ADCSRA |= _BV(ADSC); // Start conversion
+  while (bit_is_set(ADCSRA,ADSC)); // measuring
+ 
+  uint8_t low  = ADCL; // must read ADCL first - it then locks ADCH  
+  uint8_t high = ADCH; // unlocks both
+ 
+  long result = (high<<8) | low;
+ 
+  result = 1125300L / result; // Calculate Vcc (in mV); 1125300 = 1.1*1023*1000
+  return result; // Vcc in millivolts
+}
 

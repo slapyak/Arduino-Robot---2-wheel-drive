@@ -1,10 +1,13 @@
 /*
   Robot.cpp - Library for GMU ECE450 Stingray Robot control
   Created by David R. Wernli, June 18,2014
+  TinyGPS and Software Serial libraries are required as well.
 */
 
 #include "Arduino.h"
 #include "Robot.h"
+#include <SoftwareSerial.h>
+#include <TinyGPS.h>
   #define WHEELDIA 4.875    //in inches
   #define WIDTH 10.9      //in inches - width of robot
   #define _RPM (300*9.6/12) //max RPM with current voltage conditions
@@ -13,6 +16,8 @@
   #define DB 0 //debug variable to control serial print statements for all functions
   #define GPS 1 //set to 1 if GPS is to be enabled. Requires software 
   				//serial connection to GPS module on pins 3 & 4 of arduinoMega
+TinyGPS gps;
+SoftwareSerial ss(4, 3); 
 
 /* ***************************  INITIALIZE  ******************************* */
 /* Robot function must be called to start the robot up, called as
@@ -20,15 +25,15 @@
  * It has tended to be more reliable to start serial in the calling sketch
  * and use 0 for serialStart parameter
  */
-Robot::Robot(int serialStart=1){
+Robot::Robot(int serialStart, int gpsStart){
 	_alive = 1;  				//global confirmation of initialization
 	_Speed = 0;					//preset speed to stop any inadvertant movement
-	if (GPS) { TinyGPS gps; 
-	SoftwareSerial ss(4, 3); }
+	if (gpsStart == 1) { 		 
+
+	}
 	Serial.println("Robot Initialized.");
-	SerialStatus = serialStart;
  }
-Robot::start(){
+void Robot::start(){
 	Serial.begin(9600);
 	if (GPS) { ss.begin(4800); }
 }
@@ -123,13 +128,14 @@ int Robot::ping(int pingPin) {
  * calculated by linear approximation.
  */
 float Robot::IRdistance(int sensorPin) {
+  const long referenceMv = 5000; // long int to prevent overflow when multiplied
   // R = 1/(0.00004*V -0.0037) - 0.5
   // discovered by experimentation
   int val = analogRead(sensorPin);
   int mV = (val * referenceMv) / 1023;
   float dist = -0.5;
-  dist += 1/(0.04*val/1000 - 0.0037);
-  return dist
+  dist += 1/(0.04*mV/1000 - 0.0037);
+  return dist;
  }
 
 /* ************************  MOVEMENT FUNCTIONS  ************************** */
@@ -151,12 +157,12 @@ void Robot::setSpeed(int speed){
 void Robot::driveForward(int speed){
 	setSpeed(speed);
 	setDirection(1,1);
-	_go();
+	_go(_Speed, _Speed);
  }
 void Robot::driveReverse(int speed){
 	setSpeed(speed);
 	setDirection(-1,-1);
-	_go();
+	_go(_Speed, _Speed);
  }
 //Simplified function allowing variable to control direction, or coast to stop
 void Robot::drive(int speed, int dir){
@@ -251,7 +257,7 @@ int Robot::pivot(int angle, int offset){
 /* pivot 
    dir, -1=ccw, 1=cw
    type, 0=center, 1=left wheel stop, 2 = right wheel stop */
-int Robot::pivot(int dir, int speed, int type) {
+void Robot::pivot(int dir, int speed, int type) {
 	if(type = 0) {
 		_pivotCenter(dir, speed);
 	} else if (type = 1) {

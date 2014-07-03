@@ -4,6 +4,8 @@
 * ***************************************************************************** */
 
 #include <Robot.h>
+#include <SoftwareSerial.h>
+#include <TinyGPS.h>
 #define LOG 1      //debug variable, turns all serial print statements on for data logging.
 #define DB 0       //debug variable, turns all serial print statements on for debugging (not data logging).
 
@@ -17,7 +19,7 @@ float atan2(int y,int x);
 //void turn(){}       //not utilized
 
   /*--- sensors ---*/
-const int irPin = 15;    //pin reserved for Sharp IR input (analog)
+const int irPinR = 15;    //pin reserved for Sharp IR input (analog)
 const int pingPinR = 52;  //pin reserved for ping sensor input (digital)
 const int pingPinF = 53;
 //const int cdsPin = 0;     //pin reserved for photoresistor input (analog)
@@ -40,14 +42,15 @@ float Kp = 10;         //temporary variable to allow tuning of gains without upl
 const String headers = "FR\tRT\tDIST\tANG\tERR\tP term \tI term\tD term\tOutput\tTime(ms)";
 
   /*--- intitialize ---*/
-Robot robo(1);    //start the Robot, with Serial debugging ON
+Robot robo(1,1);    //start the Robot, with Serial debugging ON
                   //refer to Robot class definition for capabilities and code
 /* --------------------------------------------------------------------
  * -----------                   SETUP                     ------------
  * -------------------------------------------------------------------- */
 void setup() {
   //open serial connection
-  Serial.begin(9600);  
+  //Serial.begin(9600);  
+  robo.start();
   //set the Robot class up with the pin info for each motor
   robo.setLeft(l_EnPin, l_hPin1, l_hPin2);
   robo.setRight(r_EnPin, r_hPin1, r_hPin2);  
@@ -59,6 +62,7 @@ void setup() {
   robo.stop();
   robo.setSpeed(speed); //set speed for turning/driving
   Serial.println(headers);
+  delay(2000);  //give me a chance to put it down before driving!
  }
 
 /* --------------------------------------------------------------------
@@ -72,11 +76,8 @@ void loop(){
     case 0:
       wallfollower();
       break;
-    case 1:
-      avoidance(); //not implemented
-      break;
     case 2:
-      turn(); //not implemented
+      robo.drive();
       break;
     default:
       Serial.println("And you may ask yourself");
@@ -118,8 +119,8 @@ void serialCommand(char ch){
     Kp += (float)Serial.parseInt();
     Serial.print("Kp updated to : ");
     Serial.println(Kp);
-  } else if (ch == '0')  { //user selected wallfollower mode
-    mode = 0;
+  } else if (ch == '1')  { //user selected mode
+    mode = 2;  //just drive - test function
   } else {
     Serial.print(ch);
     Serial.println(" : unrecognized command");
@@ -148,11 +149,11 @@ void wallfollower(){
   //frontDistance = robo.IRdistance(irPinF); //option 3, IR sensor
   
   //sideDistance = 3000;                //option 1, set the distance to a fixed value
-  sideDistance = robo.ping(pingPinR);        //option 2, ping sensor
-  //sideDistance = robo.IRdistance(irPinR);  //option 3, IR sensor
+  //sideDistance = robo.ping(pingPinR);        //option 2, ping sensor
+  sideDistance = robo.IRdistance(irPinR);  //option 3, IR sensor
   
   //figure the actual distance and approach angle based on the returned sensor values
-  estimateDistance(sideDistance, frontDistance, &location);
+  estimateDistance(sideDistance, frontDistance, location);
   //logging statements, formatted as tab-separated-data for import to excel
   if(LOG){ Serial.print(""); Serial.print(frontDistance); }
   if(LOG){ Serial.print(" \t"); Serial.print(sideDistance); }

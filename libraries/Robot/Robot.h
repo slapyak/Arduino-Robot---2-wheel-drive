@@ -14,8 +14,9 @@ static int _Speed;
 class Robot
 {
   public:
-    Robot(int serialStart);
+    Robot(int serialStart, int gpsStart);
     //setup functions
+    void start();
     void setLeft(int enPin, int hPin1, int hPin2);
     void setRight(int enPin, int hPin1, int hPin2);
     void swapWheels();
@@ -35,8 +36,8 @@ class Robot
     int  turn_ang(int angle, int speed=-1);
     void turn(int dir);
     //sensor functions
-    void ping(int pingPin);
-    float IRdistance(IRpin);
+    int ping(int pingPin);
+    float IRdistance(int IRpin);
     //GPS Functions
     void GPSinit();
   private:

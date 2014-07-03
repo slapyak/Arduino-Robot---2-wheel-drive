@@ -1,0 +1,3 @@
+[submodule "libraries/Robot"]
+	path = libraries/Robot
+	url = https://slapyak@bitbucket.org/slapyak/ece450_robot_library.git

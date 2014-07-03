@@ -1,3 +1,6 @@
 [submodule "libraries/Robot"]
 	path = libraries/Robot
 	url = https://slapyak@bitbucket.org/slapyak/ece450_robot_library.git
+[submodule "Lab9_SemesterProject"]
+	path = Lab9_SemesterProject
+	url = https://slapyak@bitbucket.org/slapyak/ece450_semester-project.git

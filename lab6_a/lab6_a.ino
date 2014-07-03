@@ -13,8 +13,8 @@ void serialCommand(char ch);
 void wallfollower();
 void estimateDistance(int front, int side, float loc[2]);
 float atan2(int y,int x);
-void avoidance(){}
-void turn(){}
+//void avoidance(){}  //not utilized
+//void turn(){}       //not utilized
 
   /*--- sensors ---*/
 const int irPin = 15;    //pin reserved for Sharp IR input (analog)
@@ -36,6 +36,7 @@ const int r_hPin2 = 2;
   /*--- globals ---*/
 int mode = 0;
 int speed = 80;        //speed in PWM format [0 - 255]
+float Kp = 10;         //temporary variable to allow tuning of gains without uploading everytime
 const String headers = "FR\tRT\tDIST\tANG\tERR\tP term \tI term\tD term\tOutput\tTime(ms)";
 
   /*--- intitialize ---*/
@@ -50,7 +51,6 @@ void setup() {
   //set the Robot class up with the pin info for each motor
   robo.setLeft(l_EnPin, l_hPin1, l_hPin2);
   robo.setRight(r_EnPin, r_hPin1, r_hPin2);  
-  //pinMode(pingPinR)  
   //print instructions to user - this program requires Serial ON
   Serial.println("- - - Wall Following Robot - - -");
   Serial.println("   Enter 0 for Wallfollower");
@@ -114,55 +114,18 @@ void serialCommand(char ch){
     mode = 0;
     Serial.println("Go Forward! Move Ahead! It's not too late!");
     Serial.println(headers);
-  } else if (ch == '1')  { //unused at this time
-    mode = 1;}
-     else if (ch == '2')  { //unused at this time, for testing only.
-    robo.drive();           //tells the robot to just drive straight
+  } else if (ch == '+')  { //user selected wallfollower mode
+    Kp += (float)Serial.parseInt();
+    Serial.print("Kp updated to : ");
+    Serial.println(Kp);
+  } else if (ch == '0')  { //user selected wallfollower mode
+    mode = 0;
   } else {
     Serial.print(ch);
     Serial.println(" : unrecognized command");
   }
  }
  
-/* --------------- ping ---------------
- * gets the value from the Ping sensor and returns a distance in cm
- */
-int ping(int pingPin) {
-  // establish variables for duration of the ping,
-  // and the distance result in inches and centimeters:
-  long duration, cm;
-  // The PING))) is triggered by a HIGH pulse of 2 or more microseconds.
-  // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
-  pinMode(pingPin, OUTPUT);
-  digitalWrite(pingPin, LOW);
-  delayMicroseconds(2);
-  digitalWrite(pingPin, HIGH);
-  delayMicroseconds(5);
-  digitalWrite(pingPin, LOW);
-  pinMode(pingPin, INPUT);
-  duration = pulseIn(pingPin, HIGH);
-  // convert the time into a distance
-  // The speed of sound is 340 m/s or 29 microseconds per centimeter.
-  // The ping travels out and back, so to find the distance of the
-  // object we take half of the distance travelled.
-  cm = duration / 29 / 2;
-  return cm ;
- }
- 
-/* --------------- IRdistance ---------------
- * gets the value from the Sharp IR sensor and returns a distance in cm
- * calculated by linear approximation.
- */
-float IRdistance(int sensorPin)
-{
-  // R = 1/(0.00004*V -0.0037) - 0.5
-  // discovered by experimentation
-  int val = analogRead(sensorPin);
-  int mV = (val * referenceMv) / 1023;
-  float dist = -0.5;
-  dist += 1/(0.04*val/1000 - 0.0037);
-  return dist
-}
 
 /* --------------- wallfollower ---------------
  * main routine for following a wall, to the right of the robot at a set distance
@@ -181,15 +144,15 @@ void wallfollower(){
   //get the readings from the ping sensors
   
   frontDistance = 3000;                 //option 1, set the distance to a fixed value
-  //frontDistance = ping(pingPinF);     //option 2, ping sensor
-  //frontDistance = IRdistance(irPinF); //option 3, IR sensor
+  //frontDistance = robo.ping(pingPinF);     //option 2, ping sensor
+  //frontDistance = robo.IRdistance(irPinF); //option 3, IR sensor
   
   //sideDistance = 3000;                //option 1, set the distance to a fixed value
-  sideDistance = ping(pingPinR);        //option 2, ping sensor
-  //sideDistance = IRdistance(irPinR);  //option 3, IR sensor
+  sideDistance = robo.ping(pingPinR);        //option 2, ping sensor
+  //sideDistance = robo.IRdistance(irPinR);  //option 3, IR sensor
   
   //figure the actual distance and approach angle based on the returned sensor values
-  estimateDistance(sideDistance, frontDistance, location);
+  estimateDistance(sideDistance, frontDistance, &location);
   //logging statements, formatted as tab-separated-data for import to excel
   if(LOG){ Serial.print(""); Serial.print(frontDistance); }
   if(LOG){ Serial.print(" \t"); Serial.print(sideDistance); }
@@ -201,7 +164,8 @@ void wallfollower(){
     //turn back or go straight - we won't even do the error calculations
     //as we don't want to turn more to the right (or spend time on all the float math).
     differential = map( location[1], 30, 90, -10, -DiffMax);
-  } else { //if the angle is less than the max approach
+  } else { 
+    //if the angle is less than the max approach
     //calculate the PID error correction
     differential = compute(location[0]);
     if (differential > 0){  //if PIR output is telling us to increase distance
@@ -222,9 +186,9 @@ void wallfollower(){
   
 int compute(float distance){
   const int setPoint = 40;      //goal distance from the wall in cm
-  const float Kp = 5;          //P coefficient
-  const float Ki = .0001;      //I coefficient
-  const float Kd = 0.1;          //D coefficient
+  //static float Kp = 10;          //P coefficient
+  const float Ki = 0;      //I coefficient
+  const float Kd = 0;          //D coefficient
   static float lastError = 0;  //the value of the last error - stored between function calls
   static float errorSum = 0;   //sum of all errors - stored between calls
   static float dError = 0;         //change in error between this and last function call
@@ -282,7 +246,6 @@ float atan2(int y,int x){
   float result = 0;
   const int n = 3; //terms to iterate over
   int evenOdd;
-  //
   //Serial.print("atan2: ");
   if (y>x){
     y_over_x = (dbx/dby);

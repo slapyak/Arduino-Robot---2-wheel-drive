@@ -103,8 +103,15 @@ void cruise(){
  }
 
 void lightSeeker(int reading){
+	const int MaxDelta = 400;	//anticipated maximum difference between for any light reading
+	const int MaxTurn  = 80;	//maximum differential drive for turning in response to light
 	//turn toward the light
-	reading = map(reading, -400, 400, -100, 100);
+	//map the reading value to numbers usable by differential drive function
+	reading = map(reading, -MaxDelta, MaxDelta, -MaxTurn, MaxTurn); 
+	//ensure the number mapped is within the appropriate range
+	reading = min(MaxTurn, reading);
+	reading = max(-MaxTurn reading);
+	//execute the turn
 	robo.drive_dif(reading, -1, 80);
  }
 
@@ -147,6 +154,10 @@ void serialCommand(char ch){
     mode = 0;
     Serial.println("Go Forward! Move Ahead! It's not too late!");
     Serial.println(headers);
+  } else if (ch == '+')  { //user selected wallfollower mode
+    speed = Serial.parseInt();
+    robo.setSpeed(speed);
+    Serial.print("SPEED updated to : ");  Serial.println(speed);
   } else {
     Serial.print(ch);
     Serial.println(" : unrecognized command");

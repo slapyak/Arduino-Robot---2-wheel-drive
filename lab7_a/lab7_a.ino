@@ -3,6 +3,8 @@
 * ECE 450 - LAB #7, Subsumption - sketch a
 * ***************************************************************************** */
 #include <Robot.h>
+#include <TinyGPS.h>
+#include <SoftwareSerial.h>
 #define LOG 0 
 #define DB  1
 
@@ -14,10 +16,10 @@ void serialEvent();
 void serialCommand(char ch);
 
 /*--- sensor pins ---*/
-//const int irPinF = 14;    //pin reserved for Sharp IR input (analog)
-const int irPinR 	= 15;    //front IR sensor  
-const int pingPinR  = 52;  //pin reserved for ping sensor input (digital)
-const int pingPinF  = 53;
+const int irPinF = 14;    //pin reserved for Sharp IR input (analog)
+//const int irPinR 	= 15;    //front IR sensor  
+//const int pingPinR  = 52;  //pin reserved for ping sensor input (digital)
+//const int pingPinF  = 53;
 const int cdsPin 	= 0;     //pin reserved for photoresistor input (analog)
 
 /*--- servo pins ---*/
@@ -33,7 +35,7 @@ const int r_hPin2 = 2;
 
 /*--- global variables ---*/
 int arbiter = 0;		//holds the arbitration decision 
-int speed = 80;       	//speed in PWM format [0 - 255]
+int speed = 65;       	//speed in PWM format [0 - 255]
 
 /*--- intitialize ---*/
 Robot robo;    //start the Robot, with Serial debugging ON
@@ -43,6 +45,7 @@ Robot robo;    //start the Robot, with Serial debugging ON
  * -----------                   SETUP                     ------------
  * -------------------------------------------------------------------- */
 void setup() {
+        robo.start();
 	//open serial connection
 	Serial.begin(9600);
 	//set the Robot class up with the pin info for each motor
@@ -54,13 +57,13 @@ void setup() {
 	//make sure the robot is stopped
 	robo.stop();
 	robo.setSpeed(speed); //set speed for turning/driving
-	if (DB) Serial.println(headers);
+	//if (DB) Serial.println(headers);
 	delay(2000);	//give some time to put the robot down after reset
  }
 
 void loop(){
 	const int center = 512;		//CdS differntial center point (equal light input)
-	const int buffer = 40;		//CdS differntial deadband
+	const int buffer = 20;		//CdS differntial deadband
 	//check for activation conditions for each state
 	//checking in order from lowest importance to highest
 	//higher import modes will overwrite the arbitration variable
@@ -68,18 +71,24 @@ void loop(){
 	//Robot executes one action per 'loop'
 	arbiter = 0;	//0 case is the 'cruise function'
 	//get Cds divider info, set flag if it's outside of deadband
-	int lightdir = lightReading(cdsPin);
-	if (lightdir > center+buffer || lightdir < center-buffer) {
+	int lightRead = analogRead(cdsPin);
+        Serial.println(lightdir);
+	if (lightRead > center+buffer || lightRead < center-buffer) {
 		arbiter = 1;	//if we see a brighter spot, set conditional flag
 	}
+
+        float distance = robo.IRdistance(irPinF);
+        Serial.println(distance);
 	//get front sensor distance & make sure we are not about to ram something
 	//robo.IRdistance(irPinF) 
-	if ( < 20) {
+	if (distance < 30) {    //12 inches ~= 30cm
 		arbiter = 2;	//if we're too close, set conditional flag
 	}
 	//arbitrate - arbitration is handled by the switch statement
 	//the flags are set by the above if statements
-	switch(arbitrate) {
+        //scheduling is handled in the fact that the arduino only executes a single statement 
+        //thanks to arbitrate.
+	switch(arbiter) {
 		case -1:		//stop mode, for serial control only
 			robo.stop();
 			break;
@@ -87,22 +96,23 @@ void loop(){
 			cruise();
 			break;
 		case 1:			//case 1 is seeking the bright spot
-			lightSeeker(lightdir);
+			lightSeeker(lightRead);
 			break;
 		case 2:			//case 2 is avoiding a sensed object
 			avoid();
 			break;
-		case default:
+		default:
 			Serial.println("You really shouldn't be here - invalid mode selected");
 	}
 }
 
 void cruise(){
-	//cruise around randomly, looking for light or objects
+	//cruise around, looking for light or objects
 	robo.driveForward();
  }
 
 void lightSeeker(int reading){
+        
 	const int MaxDelta = 400;	//anticipated maximum difference between for any light reading
 	const int MaxTurn  = 80;	//maximum differential drive for turning in response to light
 	//turn toward the light
@@ -110,20 +120,21 @@ void lightSeeker(int reading){
 	reading = map(reading, -MaxDelta, MaxDelta, -MaxTurn, MaxTurn); 
 	//ensure the number mapped is within the appropriate range
 	reading = min(MaxTurn, reading);
-	reading = max(-MaxTurn reading);
+	reading = max(-MaxTurn, reading);
 	//execute the turn
-	robo.drive_dif(reading, -1, 80);
+        //bias the reading to 512 (midpoint of analog read)
+        int dif = (reading -512);
+        Serial.println(dif);
+	robo.drive_dif(dif);
  }
 
 void avoid(){
 	//back away from an object detected
-	robo.stop()
-	robo.driveReverse();
-	//at speed = 80/255 * 9.6V/12V * 300RPM = 75 RPM :: 19 inch/second
-	//back up for 6 inches, 375ms + startup time of 150ms
-	delay(525); 
+	robo.stop();
+	while(robo.IRdistance(irPinF) < 60)  //back up about a foot
+          robo.driveReverse();
 	//then pivot 45 degrees
-	robo.pivot(45);
+	robo.pivot_ang(45,200);
 }
 
 /* --------------- SerialEvent ---------------
@@ -148,12 +159,12 @@ void serialEvent() {
 void serialCommand(char ch){
   if (ch == 's' || ch == 'S') {
     robo.stop();
-    mode = -1;
+    arbiter = -1;
     Serial.println("STOP COMMAND RECIEVED");
   } else if (ch == '0')  { //user selected wallfollower mode
-    mode = 0;
+    arbiter = 0;
     Serial.println("Go Forward! Move Ahead! It's not too late!");
-    Serial.println(headers);
+    //Serial.println(headers);
   } else if (ch == '+')  { //user selected wallfollower mode
     speed = Serial.parseInt();
     robo.setSpeed(speed);

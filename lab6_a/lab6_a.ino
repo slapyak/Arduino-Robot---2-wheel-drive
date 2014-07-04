@@ -20,8 +20,9 @@ long readVcc();
 //void turn(){}       //not utilized
 
   /*--- sensors ---*/
-const int irPinR = 15;    //pin reserved for Sharp IR input (analog)
-const int pingPinR = 52;  //pin reserved for ping sensor input (digital)
+const int irPinR = 15;      //pin reserved for Sharp IR input (analog)
+const int irPinF = 14;
+const int pingPinR = 52;    //pin reserved for ping sensor input (digital)
 const int pingPinF = 53;
 //const int cdsPin = 0;     //pin reserved for photoresistor input (analog)
 
@@ -38,10 +39,10 @@ const int r_hPin2 = 2;
 
   /*--- globals ---*/
 int mode = 0;
-int speed = 50;        //speed in PWM format [0 - 255]
-float Kp = 7;         //temporary variable to allow tuning of gains without uploading everytime
-float Ki = 0;
-float Kd = 0;
+int speed = 65;        //speed in PWM format [0 - 255]
+float Kp = 7; //Ku = 8.25        //temporary variable to allow tuning of gains without uploading everytime
+float Ki = .0005;
+float Kd = 5/3;
 const String headers = "FR\tRT\tDIST\tANG\tERR\tP term \tI term\tD term\tOutput\tT(ms) \tDIFF";
 
   /*--- intitialize ---*/

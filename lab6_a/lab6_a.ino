@@ -166,7 +166,8 @@ void wallfollower(){
   sideDistance = robo.IRdistance(irPinR);  //option 3, IR sensor
   
   //figure the actual distance and approach angle based on the returned sensor values
-  estimateDistance(sideDistance, frontDistance, location);
+  //estimateDistance(sideDistance, frontDistance, location);
+  location[0] = sideDistance;
   //logging statements, formatted as tab-separated-data for import to excel
   if(LOG){ 
     Serial.print(""); Serial.print(frontDistance); 

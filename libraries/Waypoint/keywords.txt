@@ -1,0 +1,3 @@
+Waypoint	KEYWORD1
+lat	KEYWORD2
+lon	KEYWORD2

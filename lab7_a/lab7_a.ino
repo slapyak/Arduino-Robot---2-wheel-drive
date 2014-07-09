@@ -35,7 +35,7 @@ const int r_hPin2 = 2;
 
 /*--- global variables ---*/
 int arbiter = 0;		//holds the arbitration decision 
-int speed = 65;       	//speed in PWM format [0 - 255]
+int speed = 75;       	//speed in PWM format [0 - 255]
 
 /*--- intitialize ---*/
 Robot robo;    //start the Robot, with Serial debugging ON
@@ -63,7 +63,7 @@ void setup() {
 
 void loop(){
 	const int center = 512;		//CdS differntial center point (equal light input)
-	const int buffer = 20;		//CdS differntial deadband
+	const int buffer = 10;		//CdS differntial deadband
 	//check for activation conditions for each state
 	//checking in order from lowest importance to highest
 	//higher import modes will overwrite the arbitration variable
@@ -72,13 +72,13 @@ void loop(){
 	arbiter = 0;	//0 case is the 'cruise function'
 	//get Cds divider info, set flag if it's outside of deadband
 	int lightRead = analogRead(cdsPin);
-        Serial.println(lightdir);
+         Serial.println(); Serial.print("light: \t"); Serial.print(lightRead);
 	if (lightRead > center+buffer || lightRead < center-buffer) {
 		arbiter = 1;	//if we see a brighter spot, set conditional flag
 	}
 
         float distance = robo.IRdistance(irPinF);
-        Serial.println(distance);
+        Serial.print("\tfront: \t"); Serial.print(distance);
 	//get front sensor distance & make sure we are not about to ram something
 	//robo.IRdistance(irPinF) 
 	if (distance < 30) {    //12 inches ~= 30cm
@@ -91,14 +91,17 @@ void loop(){
 	switch(arbiter) {
 		case -1:		//stop mode, for serial control only
 			robo.stop();
-			break;
+                        break;
 		case 0:			//case 0 is the cruise flag
+			Serial.print(" CRUISE ");
 			cruise();
 			break;
 		case 1:			//case 1 is seeking the bright spot
+			Serial.print(" LIGHTSEEK ");
 			lightSeeker(lightRead);
 			break;
 		case 2:			//case 2 is avoiding a sensed object
+			Serial.print(" AVOID ");
 			avoid();
 			break;
 		default:
@@ -112,9 +115,10 @@ void cruise(){
  }
 
 void lightSeeker(int reading){
-        
 	const int MaxDelta = 400;	//anticipated maximum difference between for any light reading
-	const int MaxTurn  = 80;	//maximum differential drive for turning in response to light
+	const int MaxTurn  = 50;	//maximum differential drive for turning in response to light
+        //bias the incoming reading
+        reading = reading - 512;
 	//turn toward the light
 	//map the reading value to numbers usable by differential drive function
 	reading = map(reading, -MaxDelta, MaxDelta, -MaxTurn, MaxTurn); 
@@ -122,19 +126,21 @@ void lightSeeker(int reading){
 	reading = min(MaxTurn, reading);
 	reading = max(-MaxTurn, reading);
 	//execute the turn
-        //bias the reading to 512 (midpoint of analog read)
-        int dif = (reading -512);
-        Serial.println(dif);
-	robo.drive_dif(dif);
+         Serial.print("\tdiff: \t"); Serial.print(reading);
+	robo.drive_dif(reading);
  }
 
 void avoid(){
 	//back away from an object detected
 	robo.stop();
-	while(robo.IRdistance(irPinF) < 60)  //back up about a foot
+        int reading = robo.IRdistance(irPinF);
+	while(reading < 45) {  //back up about 6"
           robo.driveReverse();
+          reading = robo.IRdistance(irPinF);
+        }
 	//then pivot 45 degrees
 	robo.pivot_ang(45,200);
+        robo.setSpeed(speed);
 }
 
 /* --------------- SerialEvent ---------------
@@ -161,6 +167,8 @@ void serialCommand(char ch){
     robo.stop();
     arbiter = -1;
     Serial.println("STOP COMMAND RECIEVED");
+    while(1){
+      delay(500);}
   } else if (ch == '0')  { //user selected wallfollower mode
     arbiter = 0;
     Serial.println("Go Forward! Move Ahead! It's not too late!");

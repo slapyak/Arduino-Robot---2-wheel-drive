@@ -7,7 +7,7 @@
 #include <TinyGPS.h>
 #include <SoftwareSerial.h>
 #define LOG 0 
-#define DB  1
+#define DB  0 
 
 /*--- function declarations ---*/
 void cruise();
@@ -62,9 +62,9 @@ Robot robo;    //start the Robot, with Serial debugging ON
  * -----------                   SETUP                     ------------
  * -------------------------------------------------------------------- */
 void setup() {
-        robo.start();
+    robo.start();
 	//open serial connection
-	Serial.begin(9600);
+	//Serial.begin(9600);
 	//set the Robot class up with the pin info for each motor
 	robo.setLeft( l_EnPin, l_hPin1, l_hPin2);
 	robo.setRight(r_EnPin, r_hPin1, r_hPin2);
@@ -83,16 +83,16 @@ void setup() {
  * -------------------------------------------------------------------- */
 void loop(){
 	//check for something in front of bot, collision avoidance
-	int distance = robo.IRdistance(irPinF);
-    Serial.print("\tfront: \t"); Serial.print(distance);
+	float distance = robo.IRdistance(irPinF);
 	//get front sensor distance & make sure we are not about to ram something
 	//robo.IRdistance(irPinF) 
 	if (distance < 30) {    //12 inches ~= 30cm
+		if(DB) { Serial.print("\tfront: \t"); Serial.println(distance); }
 		avoid();
 	}
 	switch(mode) {
 		case 0:			//stop mode, for serial control only
-			robo.stop();
+			//nothing to do...
 			break;
 		case -1:		//avoidance! mode - back off from detected object.
             //avoid();	//handled prior to switch statement to avoid changing modes
@@ -123,7 +123,8 @@ void avoid(){	//obstacle avoidance - back up and rotate away
  }
 
 void done(){	//let the user know the program is completed.
-	Serial.print("Program "); Serial.print(program); Serial.println(" completed.");
+	if(DB) {Serial.print("Program "); Serial.print(program); Serial.println(" completed."); }
+	robo.stop();
 	mode = 0;
  }
 
@@ -133,7 +134,7 @@ void done(){	//let the user know the program is completed.
  */
 int executeNavigation(){
 	int status=-1;	//holds the status of the selected nav function, 1 means completed.
-	Serial.print("Program "); Serial.print(program); Serial.println(" running.");
+	//if(DB){ Serial.print("Program "); Serial.print(program); Serial.println(" running."); }
 		//initialized to -1 primarily for debugging purposes.
 	switch (program){
 		case 1:
@@ -152,6 +153,10 @@ int executeNavigation(){
 			status = navTest();	//function returns 1 when completed
 			return status;
 			break;
+                case 5:
+			navDiagnostic();	//function returns 1 when completed
+			return 0;
+			break;
 		default:
 			Serial.print("Invalid navigation program selected : "); Serial.println(program);
 	}
@@ -164,7 +169,7 @@ int nav1(){
  */
 	//returns 1 when completed, 0 otherwise.
 	static int step = 0;	//internal variable to keep track of where we are in the program
-	Serial.print("Program 1, step "); Serial.print(step); Serial.println(" running.");
+	if(DB){ Serial.print("Program 1, step "); Serial.print(step); Serial.println(" running."); }
 	//execute the step we are on	
 	switch (step){
 		case 0:	//starting at waypoint 1 (manually placed)
@@ -191,7 +196,7 @@ int nav2(){
  */
 	//returns 1 when completed, 0 otherwise.
 	static int step = 0;	//internal variable to keep track of where we are in the program
-	Serial.print("Program 2, step "); Serial.print(step); Serial.println(" running.");
+	if(DB){ Serial.print("Program 2, step "); Serial.print(step); Serial.println(" running."); }
 	//execute the step we are on	
 	switch (step){
 		case 0:	//starting at waypoint 3 (manually placed)
@@ -210,7 +215,8 @@ int nav2(){
 			step += robo.travel_to(WPT5); //returns 1 when completed
 			return 0;	//not done yet
 			break;
-		case 4:	//spin in place at waypoint 2
+		case 4:	//spin in place at waypoint 5
+			robo.pivot(360);
 			robo.pivot(360);
 		default:
 			step = 0;	//reset when done
@@ -227,7 +233,7 @@ int nav3(){
  */
 	//returns 1 when completed, 0 otherwise.
 	static int step = 0;	//internal variable to keep track of where we are in the program
-	Serial.print("Program 3, step "); Serial.print(step); Serial.println(" running.");
+	if(DB){ Serial.print("Program 3, step "); Serial.print(step); Serial.println(" running."); }
 	//execute the step we are on	
 	switch (step){
 		case 0:	//starting at waypoint 1 (manually placed)
@@ -245,13 +251,16 @@ int nav3(){
 			return 1;	//job's done
 	}
  }
+int navDiagnostic(){
+  robo.GPStest();
+}
 int navTest(){
  /*Test Run
 	Drive around in the road...
  */
 	//returns 1 when completed, 0 otherwise.
 	static int step = 0;	//internal variable to keep track of where we are in the program
-	Serial.print("Program 3, step "); Serial.print(step); Serial.println(" running.");
+	if(DB){ Serial.print("Test program, step "); Serial.print(step); Serial.println(" running."); }
 	//execute the step we are on	
 	switch (step){
 		case 0:	//starting at waypoint 1 (manually placed)
@@ -270,7 +279,7 @@ int navTest(){
 			step += robo.travel_to(WPT6); //returns 1 when completed
 			return 0;	//not done yet
 			break;
-		case 4:	//spin in place at waypoint 2
+		case 4:	//spin in place at waypoint 
 			robo.pivot(360);
 		default:
 			step = 0;	//reset when done
@@ -306,8 +315,6 @@ void serialCommand(char ch){
     robo.stop();
     mode = 0;
     Serial.println("STOP COMMAND RECIEVED");
-    while(1){
-      delay(500);}
   } else if (ch == 'n' || ch == 'N')  { //Change Navigation Mode
     Serial.println("Go Forward! Move Ahead! It's not too late!");
     program = Serial.parseInt();	//get the integer from serial

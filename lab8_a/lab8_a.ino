@@ -1,5 +1,5 @@
 /* *******************************************************************************
-* David Wernli & Hollis Harrel
+* David Wernli & Hollis Harrell
 * ECE 450 - LAB #8, Subsumption - sketch a
 * ***************************************************************************** */
 #include <Robot.h>
@@ -17,11 +17,11 @@ void serialEvent();
 void serialCommand(char ch);
 
 /*--- sensor pins ---*/
-const int irPinF = 14;    //pin reserved for Sharp IR input (analog)
-//const int irPinR 	= 15;    //front IR sensor  
-//const int pingPinR  = 52;  //pin reserved for ping sensor input (digital)
-//const int pingPinF  = 53;
-const int cdsPin 	= 0;     //pin reserved for photoresistor input (analog)
+//const int irPinF = 14;    //pin reserved for Sharp IR input (analog)
+//const int irPinR = 15;    //front IR sensor  
+//const int pingPinR = 52;    //pin reserved for ping sensor input (digital)
+//const int pingPinF = 53;
+//const int cdsPin = 0;     //pin reserved for photoresistor input (analog)
 
 /*--- servo pins ---*/
 //const int servPin = 8   //pin reserved for servo output (PWM)
@@ -39,16 +39,17 @@ int mode = 0;		//holds the arbitration decision
 int program = 0;	//preprogrammed navigation function
 int speed = 75;       	//speed in PWM format [0 - 255]
 
-const Waypoint WPT1(38.828506, -77.304817);	
+const Waypoint WPT1(38.828528, -77.304768);	
 //defined by lab manual - WPT1:  38° 49’ 42.62” N, 77° 18’ 17.34” W
-const Waypoint WPT2(38.828477, -77.304381);	
+const Waypoint WPT2(38.828768, -77.304736);	
 //defined by lab manual - WPT2:  38° 49’ 42.41” N, 77° 18’ 15.77” W
-const Waypoint WPT3(38.828767, -77.304756);	
+const Waypoint WPT3(38.828732, -77.304472);	
 //defined by lab manual - WPT3:  38° 49’ 43.56” N, 77° 18’ 17.12” W
 const Waypoint WPT4(38.828467, -77.304611);	
 //defined by lab manual - WPT4:  38° 49’ 42.48” N, 77° 18’ 16.60” W
 const Waypoint WPT5(38.828728, -77.304539);	
 //defined by lab manual - WPT5:  38° 49’ 43.42” N, 77° 18’ 16.34” W
+
 const Waypoint WPT6(38.824616, -77.433262);	//testing waypoint Betsy/Red River
 const Waypoint WPT7(38.824759, -77.433075);	//testing waypoint Red River 1
 const Waypoint WPT8(38.825115, -77.433328);	//testing waypoint Red River/Betsy
@@ -56,7 +57,7 @@ const Waypoint WPT9(38.824936, -77.433387);	//testing waypoint Betsy Ross
 
 /*--- intitialize ---*/
 Robot robo;    //start the Robot, with Serial debugging ON
-                  //refer to Robot class definition for capabilities and code
+               //refer to Robot class definition for capabilities and code
 
 /* --------------------------------------------------------------------
  * -----------                   SETUP                     ------------
@@ -83,13 +84,13 @@ void setup() {
  * -------------------------------------------------------------------- */
 void loop(){
 	//check for something in front of bot, collision avoidance
-	float distance = robo.IRdistance(irPinF);
+	//float distance = robo.IRdistance(irPinF);
 	//get front sensor distance & make sure we are not about to ram something
 	//robo.IRdistance(irPinF) 
-	if (distance < 30) {    //12 inches ~= 30cm
-		if(DB) { Serial.print("\tfront: \t"); Serial.println(distance); }
-		avoid();
-	}
+	//if (distance < 30) {    //12 inches ~= 30cm
+		//if(DB) { Serial.print("\tfront: \t"); Serial.println(distance); }
+		//avoid();
+	//}
 	switch(mode) {
 		case 0:			//stop mode, for serial control only
 			//nothing to do...
@@ -109,10 +110,10 @@ void loop(){
 	}
 }
 
-void avoid(){	//obstacle avoidance - back up and rotate away
+/*void avoid(){	//obstacle avoidance - back up and rotate away
 	//back away from an object detected
 	robo.stop();
-        int reading = robo.IRdistance(irPinF);
+        //int reading = robo.IRdistance(irPinF);
 	while(reading < 45) {  //back up about 6"
           robo.driveReverse();
           reading = robo.IRdistance(irPinF);
@@ -120,7 +121,7 @@ void avoid(){	//obstacle avoidance - back up and rotate away
 	//then pivot 45 degrees
 	robo.pivot_ang(45);
     robo.setSpeed(speed);
- }
+ }*/
 
 void done(){	//let the user know the program is completed.
 	if(DB) {Serial.print("Program "); Serial.print(program); Serial.println(" completed."); }
@@ -178,10 +179,25 @@ int nav1(){
 			break;
 		case 1:	//go to waypoint #2
 			step += robo.travel_to(WPT2); //returns 1 when completed
+                        //robo.pivot_ang(180);
 			return 0;	//not done yet
 			break;
 		case 2:	//spin in place at waypoint 2
-			robo.pivot(360);
+                        //Serial.println();
+			robo.pivot_ang(90);
+                        robo.pivot_ang(90);
+                        //robo.pivot_ang(90);
+                        //robo.pivot_ang(90);
+                        step += 1;
+                        return 0;
+                 case 3:
+                     step += robo.travel_to(WPT1);
+                     return 0;
+                     break;
+                 case 4:
+                     robo.pivot_ang(360);
+                     
+                     
 		default:
 			step = 0;	//reset when done
 			return 1;	//job's done
@@ -227,7 +243,7 @@ int nav3(){
  /*Third Run:
 	i.	Place an obstacle between WPT1 and WPT2.
 	ii.	Starting at WPT1, move from WPT1 to WPT2.
-	iii. Detect and successfully avoid the obstacle between the two 
+	iii.    Detect and successfully avoid the obstacle between the two 
 		waypoints and continue to navigate to WPT2 after passing the obstacle;
 	iv.	Once at WPT2, do a 360 degree turn and stop
  */

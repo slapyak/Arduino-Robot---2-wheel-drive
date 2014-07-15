@@ -55,7 +55,7 @@ const Waypoint WPT7(38.824759, -77.433075);	//testing waypoint Red River 1
 const Waypoint WPT8(38.825115, -77.433328);	//testing waypoint Red River/Betsy
 const Waypoint WPT9(38.824936, -77.433387);	//testing waypoint Betsy Ross
 
-/*--- intitialize ---*/
+/*--- intialize ---*/
 Robot robo;    //start the Robot, with Serial debugging ON
                //refer to Robot class definition for capabilities and code
 

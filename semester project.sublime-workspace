@@ -1,0 +1,753 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"print",
+				"println"
+			],
+			[
+				"sum",
+				"sum_f"
+			],
+			[
+				"ir",
+				"irPinR"
+			],
+			[
+				"ird",
+				"IRdistance"
+			],
+			[
+				"right",
+				"rightSide"
+			],
+			[
+				"set",
+				"setPoint"
+			],
+			[
+				"left",
+				"leftIR"
+			],
+			[
+				"pid",
+				"PIDcalc"
+			],
+			[
+				"min",
+				"MinSpeed"
+			],
+			[
+				"rp",
+				"RPM"
+			],
+			[
+				"ret",
+				"ret_val"
+			],
+			[
+				"sen",
+				"sensorPin"
+			],
+			[
+				"irPin",
+				"irPinF"
+			],
+			[
+				"max",
+				"MaxTurn"
+			],
+			[
+				"Max",
+				"MaxTurn"
+			],
+			[
+				"fix",
+				"fix_age"
+			],
+			[
+				"get",
+				"f_get_position"
+			],
+			[
+				"DB",
+				"DB"
+			],
+			[
+				"angle",
+				"angle"
+			],
+			[
+				"an",
+				"angle"
+			],
+			[
+				"dri",
+				"drive_dif"
+			],
+			[
+				"dist",
+				"dist_to"
+			],
+			[
+				"dest",
+				"destination"
+			],
+			[
+				"dista",
+				"distance_between"
+			],
+			[
+				"reading",
+				"readings_r"
+			],
+			[
+				"readings",
+				"readings_l"
+			],
+			[
+				"av",
+				"average_r"
+			],
+			[
+				"avera",
+				"average_l"
+			],
+			[
+				"aver",
+				"average_l"
+			],
+			[
+				"n",
+				"numReadings"
+			],
+			[
+				"sum_",
+				"sum_l"
+			],
+			[
+				"read",
+				"readings_l"
+			],
+			[
+				"irp",
+				"irPinR"
+			],
+			[
+				"righ",
+				"right_read"
+			],
+			[
+				"low",
+				"low_left"
+			],
+			[
+				"turn",
+				"turn_until"
+			],
+			[
+				"stop",
+				"stopReading"
+			],
+			[
+				"firs",
+				"first_right"
+			],
+			[
+				"IR",
+				"IRdistance"
+			],
+			[
+				"fist",
+				"first_right"
+			],
+			[
+				"last",
+				"last_reading"
+			],
+			[
+				"curre",
+				"current_reading"
+			],
+			[
+				"cur",
+				"current_reading"
+			],
+			[
+				"cali",
+				"calibrateWidth"
+			],
+			[
+				"gps",
+				"gpsspeed"
+			],
+			[
+				"_",
+				"_fix_age"
+			],
+			[
+				"ma",
+				"MaxDelta"
+			],
+			[
+				"light",
+				"lightSeeker"
+			],
+			[
+				"arbitrat",
+				"arbitrate"
+			],
+			[
+				"_pivo",
+				"_pivotRight"
+			],
+			[
+				"_piv",
+				"_pivotLeft"
+			],
+			[
+				"sp",
+				"speed"
+			],
+			[
+				"_p",
+				"_pivotCenter"
+			],
+			[
+				"M",
+				"MAX_DIFF"
+			],
+			[
+				"target",
+				"targetAngle"
+			],
+			[
+				"serv",
+				"servPin"
+			],
+			[
+				"step",
+				"stepWidth"
+			],
+			[
+				"cds",
+				"cdsPin"
+			],
+			[
+				"seria",
+				"serialCommand"
+			],
+			[
+				"St",
+				"String"
+			],
+			[
+				"_pi",
+				"_pivotLeft"
+			],
+			[
+				"Stop",
+				"stop"
+			],
+			[
+				"prin",
+				"print"
+			],
+			[
+				"spe",
+				"speed"
+			],
+			[
+				"dir",
+				"dir"
+			],
+			[
+				"speed",
+				"speed_l"
+			],
+			[
+				"_wheel",
+				"_wheelCirc"
+			],
+			[
+				"_pivot",
+				"_pivotLeft"
+			],
+			[
+				"drive",
+				"driveForward"
+			],
+			[
+				"pr",
+				"println"
+			],
+			[
+				"piv",
+				"pivotCenter"
+			],
+			[
+				"p",
+				"println"
+			],
+			[
+				"plo",
+				"plotpos"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"as",
+				"asciiz"
+			],
+			[
+				"element",
+				"elements"
+			],
+			[
+				"swa",
+				"swap1"
+			],
+			[
+				"sw",
+				"swap2"
+			],
+			[
+				"STR",
+				"STREQ1"
+			],
+			[
+				"Mode",
+				"ModelForm"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"person",
+				"person_id"
+			],
+			[
+				"ownfamil",
+				"ownfamilies"
+			],
+			[
+				"exc",
+				"exclude"
+			],
+			[
+				"in",
+				"in_value"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Lab9_SemesterProject/LeaderBot/LeaderBot.ino",
+			"settings":
+			{
+				"buffer_size": 11097,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "/* *******************************************************************************\n* Refer to contributors.txt for authorship information\n* ECE 450 - Semester Project Follower Robot\n* ***************************************************************************** */\n#include <Robot.h>\n#define LOG 0 \n#define DB  1\n#define RPM (9.6/12*300) //RPM rating of current bot at operating voltage\n\n/*--- function declarations ---*/\nvoid serialEvent();\nvoid serialCommand(char ch);\nint PIDcalc(int distance);\n\n/*--- sensor pins ---*/\nconst int irPinL   = 14;    //pin reserved for Sharp IR input (analog)\nconst int irPinR  	= 15;    //front IR sensor  \nconst int pingPinR  = 52;  //pin reserved for ping sensor input (digital)\nconst int pingPinL  = 53;\nconst int cdsPin1 	= 0;     //pin reserved for photoresistor input (analog)\nconst int cdsPin2   = 0; \n\n/*--- servo pins ---*/\n//const int servPin = 8   //pin reserved for servo output (PWM)\n\n/*--- motor pins ---*/\nconst int l_EnPin = 7;  //left motor enable pin\nconst int l_hPin1 = 5;  //left motor hbridge pins\nconst int l_hPin2 = 4;\nconst int r_EnPin = 6;  //right motor enable pin (for PWM speed ctrl)\nconst int r_hPin1 = 3;  //right motor hbridge pins\nconst int r_hPin2 = 2;\n\n/*--- global variables ---*/\nint mode = 0;		//holds the arbitration decision \nint speed = 80;       	//speed in PWM format [0 - 255]\n\n\n/*--- intitialize ---*/\nRobot robo;    //start the Robot, with Serial debugging ON\n                  //refer to Robot class definition for capabilities and code\n\n/* --------------------------------------------------------------------\n * -----------                   SETUP                     ------------\n * -------------------------------------------------------------------- */\nvoid setup() {\n	//open serial connection\n	Serial.begin(9600);\n	//set the Robot class up with the pin info for each motor\n	robo.setLeft(l_EnPin, l_hPin1, l_hPin2);\n	robo.setRight(r_EnPin, r_hPin1, r_hPin2);\n	Serial.println(\"- - - Follower Robot - - -\");\n  	Serial.println(\"   Enter 0 for Follower Robot\");\n	Serial.println(\"   Enter s,S to stop all movement\");  \n	//make sure the robot is stopped\n	robo.stop();\n	robo.setSpeed(speed); //set speed for turning/driving\n	delay(2000);	//give some time to put the robot down after reset\n }\n\nvoid loop(){\n	//do stuff\n  switch(mode){\n    case 0: //stop mode - take no action\n      break;\n    case 1: //standard follower mode\n      follower(); //call the follower function\n      break;\n    case 2:\n      break;\n    default:\n      Serial.println(\"shouldn't be here... Invalid Mode Selection\");\n  }\n}\n\nvoid follower(){\n  int diff = 0; //variable to hold the differential turning \n  static int threshold = 750; //the minimum light level we will consider\n  static int MaxTurn = 30;    //the maximum differential we wish to use\n  static int MaxReading = 250;//the maximum delta between light sensor readings expected\n  static int MaxSpeed = RPM*0.7;\n  static int MinSpeed = 0;\n  //get Cds Sensor data\n  int leftSens  = analogRead(cdsPin1);\n  int rightSens = analogRead(cdsPin2);\n  //set differential turning\n  //..if at least one sensor is over the threshold\n  if (leftSens > threshold || rightSens > threshold){\n    //we know we found the bot in front,\n    //so turn toward it, \n    //the higher reading indicates the direction the bot ahead is in\n    //the difference in the two sensors is a rough indication of how far in that direction\n    //negative differentials will turn left, positive to the right\n    diff = rightSens - leftSens;  //find the difference\n    diff = max(-MaxReading, diff);  //set a floor for the sensor differnce\n    diff = min(MaxReading, diff);   //set a ceiling\n    diff = map(diff, -MaxReading, MaxReading, -MaxTurn, MaxTurn); //map to the differential\n  }\n  //get front sensor data - distance returned as float, cast to int and *1000\n  int leftIR  = robo.IRdistance_mm(irPinL);\n  int rightIR = robo.IRdistance_mm(irPinR);\n  int distance = (leftIR + rightIR)/2;  //dummy value for the time being\n  //do some math to figure out where the bot is\n    //need to check both, reject anything with too big of a difference\n    //we could also use these readings to determine if we are pointed at the bot ahead properly\n    //instead of the above section\n  //calculate PID for distance with error above\n  int correction = PIDcalc(distance);\n    //too close will give a negative value, we want to add that to the current speed\n    //too far will give a positive value, we want to add that to the current speed\n    //then we need to set a floor and ceiling for how fast the bot can go\n  speed = speed + correction;\n  speed = max(MinSpeed, speed);\n  speed = min(MaxSpeed, speed);p\n  \n  //determine if we need to speed up or slow down\n  //have the bot drive in the direction and speed necessary\n  robo.setSpeed(speed);\n  robo.drive_dif(diff);\n}\n\nint PIDcalc(int distance){\n  static int setPoint = 500; //distance to the bot in front in mm\n  //setup & tuning variables, \n  //below are for 300 RPM motors at 80/255 speed setting.\n  const float Ku = 8.25;\n  const float Tu = 3400;\n  const float Kp = Ku*0.45;\n  const float Ki = Kp*2/Tu;\n  const float Kd = Kp*Tu/3;\n  //terms used each time\n  static float lastError = 0;  //the value of the last error - stored between function calls\n  static float errorSum = 0;   //sum of all errors - stored between calls\n  static float dError = 0;         //change in error between this and last function call\n  static unsigned long lastTime = 0;  //last time the function was called\n  unsigned long now = millis(); //current time in milliseconds \n  float timeChange = (now - lastTime);  //self explanitory?\n  float error;                 //current error\n  float Pterm;                 //proportional term\n  float Iterm;                 //integral term\n  float Dterm;                 //derivative term\n  int output;\n  //Use PID function from Lab #6\n  error = (float)(setPoint - distance);\n  errorSum += (error*timeChange);       \n  dError = (error - lastError)/timeChange;\n  Pterm = (Kp*error);\n  Iterm = (Ki*errorSum);\n  Dterm = (Kd*dError);\n  output = (Pterm + Iterm + Dterm);\n  //\n  lastError = error;\n  lastTime = now;\n  //\n  if(LOG){ \n    Serial.print(\" \\t\"); Serial.print(error);\n    Serial.print(\" \\t\"); Serial.print(Pterm);\n    Serial.print(\" \\t\"); Serial.print(Iterm);\n    Serial.print(\" \\t\"); Serial.print(Dterm);\n    Serial.print(\" \\t\"); Serial.print(output);\n    Serial.print(\" \\t\"); Serial.print(now); \n  }\n  //\n  return (int)output;\n}\n\n/* --------------- SerialEvent ---------------\n occurs whenever a new data comes in the\n hardware serial RX.  This routine is run between each\n time loop() runs, so using delay inside loop can delay\n response.  Multiple bytes of data may be available.\n */\nvoid serialEvent() {\n  while (Serial.available()) {\n    // get the new byte:\n    char inChar = (char)Serial.read(); \n    // add it to the inputString:\n    serialCommand(inChar);\n    } \n }\n\n/* --------------- serialCommand ---------------\n each character coming in the serial line is evaluated\n against known commands - commands listed in the setup()\n */\nvoid serialCommand(char ch){\n  if (ch == 's' || ch == 'S') {\n    robo.stop();\n    mode = -1;\n    Serial.println(\"STOP COMMAND RECIEVED\");\n  } else if (ch == '0')  { //user selected wallfollower mode\n    mode = 0;\n    Serial.println(\"Go Forward! Move Ahead! It's not too late!\");\n  } else if (ch == '+')  { //user selected wallfollower mode\n    speed = Serial.parseInt();\n    robo.setSpeed(speed);\n    Serial.print(\"SPEED updated to : \");  Serial.println(speed);\n  } else {\n    Serial.print(ch);\n    Serial.println(\" : unrecognized command\");\n  }\n }\n",
+			"file": "Lab9_SemesterProject/FollowerBot/FollowerBot.ino",
+			"file_size": 7827,
+			"file_write_time": 130501204929258939,
+			"settings":
+			{
+				"buffer_size": 7630,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"matla",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"matlab",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/lab6_a/lab6_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/lab8_a/lab8_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/Robot/Robot.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/Robot/Robot.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/Waypoint/Waypoint.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/Waypoint/Waypoint.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/Waypoint/keywords.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS/TinyGPS.cpp",
+		"/C/Users/Dave/AppData/Local/Temp/Temp1_Arduino-Tutorial-15-Files.zip/Schematics/README.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS/TinyGPS.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/lab7_a/lab7_a.ino",
+		"/D/Programs/Rainmeter/Skins/Enigma/Clock/Clock.ini",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Network/Network.inc",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Network/Network.ini",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Network/Network-Graph.ini",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Bandwidth/OLD.ini",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Bandwidth/Bandwidth-Graph.ini",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Bandwidth/Bandwidth.inc",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Bandwidth/Bandwidth.ini",
+		"/D/Programs/Rainmeter/Skins/Enigma/@Resources/User/Notes/Notes.txt",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Measures/DataLog_Traffic.lua",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Measures/Reader.lua",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Sidebar/Reader/Reader.ini",
+		"/C/Users/Dave/AppData/Roaming/Rainmeter/Rainmeter.stats",
+		"/D/Programs/RainMeter/Default.ini",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/Lab9_SemesterProject/LeaderBot/LeaderBot.ino",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarSystem.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Sidebar/Network/Network.ini",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarCommon.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/OptionsFormat.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/Sidebar.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/OptionsLayout.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarCalendar.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarClock.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarGallery.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarMusic.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarNotes.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarReader.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarWeather.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarWorld.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/Taskbar.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/TaskbarCommon.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/TaskbarExtras.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/VariablesDefault.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarGcal.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/Variables.inc",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/lab6_a/lab6_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/libraries/Robot/Robot.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/libraries/Robot/Robot.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS-13/examples/simple_test/simple_test.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS-13/examples/static_test/static_test.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS-13/examples/test_with_gps_device/test_with_gps_device.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/Lab9_SemesterProject/FollowerBot/FollowerBot.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS-13/TinyGPS.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS-13/TinyGPS.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/lab8_a/readme.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/lab8_a/gps_test_1.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/Lab9_SemesterProject/LeaderBot/readme.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/Lab9_SemesterProject/FollowerBot/readme.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/lab7_a/readme.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/Lab 7 algorithm",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/Lab 7 reference code.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/lab6_a/lab6_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/lab5_a/lab5_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/temp",
+		"/D/Dropbox/_SCHOOL/ECE-450/lab4_a/lab4_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/wernli_lab03_c/wernli_lab03_c.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/contributors.txt",
+		"/D/Dropbox/PortableApps/Git/repos/bb101repo-practive/myquote",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/Robot/Robot.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/Robot/Robot.cpp",
+		"/D/Dropbox/PortableApps/Git/README.portable",
+		"/D/My Downloads/ECE450 - Lab6 notes",
+		"/D/My Downloads/ECE450 - Robot Operation Notes",
+		"/D/My Downloads/Design Narrative",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/libraries/ece450.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/libraries/readme.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/BigNumberMath/BigNumberMath.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/BigNumberMath/BigNumberMath.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/Robot/Robot.cpp",
+		"/D/Dropbox/_WORK/keys.txt",
+		"/D/Dropbox/_HOME/genealogy/myfile.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/lab5_b/lab5_b.ino",
+		"/D/Dropbox/_SCHOOL/ENGH-302/electric cars.htm",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/__disabled_Robot/Robot.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/__disabled_Robot/Robot.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/readme.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/Robot_h/Robot.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/Robot_h/Robot.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/lab4_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/RealTimeFIR.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/next_x.m",
+		"/D/Dropbox/_WORK/Portfolio/David_Wernli-Resume_11-2011.txt",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/FreqResp.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/HanFreqResp.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/MultiPlot.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/Project2.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/ExamplePlots.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/Next_y.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/FreqResp.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/HanFreqResp.m",
+		"/D/My Downloads/Project2.m",
+		"/D/My Downloads/HanFreqResp.m",
+		"/D/My Downloads/FreqResp.m",
+		"/C/Users/Dave/AppData/Local/Temp/Temp1_mem_mapped_David_Wernli.zip/project6.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/Comments.txt",
+		"/D/Dropbox/_SCHOOL/ECE-445/project6.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/project6.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/rij_datapath/instmem.vhd",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/project5.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/rij_example.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/project3.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/dwernli2_hw5_q2c.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/dwernli2_hw5_q3a.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/projec4.asm",
+		"/D/My Downloads/datamem(1).vhd",
+		"/D/My Downloads/regfile(1).vhd",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project1.m",
+		"/D/Dropbox/_SCHOOL/_COMPLETED COURSES/ECE-220/Lab4/DW_lab4.m",
+		"/D/Dropbox/_SCHOOL/_COMPLETED COURSES/ECE-220/Lab4/Lab4_2_plots.m",
+		"/D/Dropbox/_SCHOOL/_COMPLETED COURSES/ECE-220/Lab5/Lab 5 220.doc",
+		"/D/Dropbox/_SCHOOL/_COMPLETED COURSES/ECE-220/Lab6/Lab6.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/project.m",
+		"/D/Dropbox/_SCHOOL/_COMPLETED COURSES/ECE-220/Lab2/Func_1.m",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/dwernli2_hw5_q3b.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/dwernli2_hw5_q2a.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/dwernli2_hw5_q2b.asm"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"pidcal",
+			"distance",
+			"Serial10",
+			"Serial1",
+			"ss",
+			"course_to",
+			"GPSDB",
+			"get_",
+			"parse",
+			"course",
+			"travelTo",
+			"arbiter",
+			"graph",
+			"histog",
+			"dpi =",
+			" \");",
+			"_speed",
+			"diff",
+			"_wheelCirc",
+			"_wheel",
+			"Initialized",
+			"private",
+			"direction",
+			"_direction(char wheel[], int d",
+			"m2pin2",
+			"m2pin1",
+			"m2pinEN",
+			"m1pin2",
+			"m1pin1",
+			"mLpin1",
+			"m1pinEN",
+			"enPin",
+			"in2Pin",
+			"in1Pin",
+			"form",
+			"backg",
+			"left{",
+			"spouse",
+			"listfiel",
+			"manyto",
+			"image",
+			"lambda"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Serial1",
+			"Serial10",
+			"travel_to",
+			"mode",
+			"_Speed",
+			"_direction",
+			"mRpin2",
+			"mRpin1",
+			"mRpinEN",
+			"mLpin2",
+			"mLpin1",
+			"mLpinEN",
+			"m1pinEN",
+			"m1pin2",
+			"m1pin1"
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Lab9_SemesterProject/LeaderBot/LeaderBot.ino",
+					"settings":
+					{
+						"buffer_size": 11097,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5015,
+								5015
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2502.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Lab9_SemesterProject/FollowerBot/FollowerBot.ino",
+					"settings":
+					{
+						"buffer_size": 7630,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4672,
+								4672
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1159.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/D/Dropbox/_SCHOOL/ECE-450/Git/robot libraries.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

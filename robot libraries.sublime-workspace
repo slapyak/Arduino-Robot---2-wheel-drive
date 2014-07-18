@@ -1,0 +1,777 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"right",
+				"rightIR"
+			],
+			[
+				"left",
+				"leftIR"
+			],
+			[
+				"pid",
+				"PIDcalc"
+			],
+			[
+				"set",
+				"setSpeed"
+			],
+			[
+				"min",
+				"MinSpeed"
+			],
+			[
+				"rp",
+				"RPM"
+			],
+			[
+				"ret",
+				"ret_val"
+			],
+			[
+				"sen",
+				"sensorPin"
+			],
+			[
+				"irPin",
+				"irPinF"
+			],
+			[
+				"max",
+				"MaxTurn"
+			],
+			[
+				"Max",
+				"MaxTurn"
+			],
+			[
+				"fix",
+				"fix_age"
+			],
+			[
+				"get",
+				"f_get_position"
+			],
+			[
+				"DB",
+				"DB"
+			],
+			[
+				"angle",
+				"angle"
+			],
+			[
+				"an",
+				"angle"
+			],
+			[
+				"dri",
+				"drive_dif"
+			],
+			[
+				"dist",
+				"dist_to"
+			],
+			[
+				"dest",
+				"destination"
+			],
+			[
+				"dista",
+				"distance_between"
+			],
+			[
+				"reading",
+				"readings_r"
+			],
+			[
+				"readings",
+				"readings_l"
+			],
+			[
+				"av",
+				"average_r"
+			],
+			[
+				"avera",
+				"average_l"
+			],
+			[
+				"aver",
+				"average_l"
+			],
+			[
+				"n",
+				"numReadings"
+			],
+			[
+				"sum_",
+				"sum_l"
+			],
+			[
+				"read",
+				"readings_l"
+			],
+			[
+				"irp",
+				"irPinR"
+			],
+			[
+				"righ",
+				"right_read"
+			],
+			[
+				"ir",
+				"irPinL"
+			],
+			[
+				"low",
+				"low_left"
+			],
+			[
+				"turn",
+				"turn_until"
+			],
+			[
+				"stop",
+				"stopReading"
+			],
+			[
+				"firs",
+				"first_right"
+			],
+			[
+				"IR",
+				"IRdistance"
+			],
+			[
+				"fist",
+				"first_right"
+			],
+			[
+				"print",
+				"print"
+			],
+			[
+				"last",
+				"last_reading"
+			],
+			[
+				"curre",
+				"current_reading"
+			],
+			[
+				"cur",
+				"current_reading"
+			],
+			[
+				"cali",
+				"calibrateWidth"
+			],
+			[
+				"gps",
+				"gpsspeed"
+			],
+			[
+				"_",
+				"_fix_age"
+			],
+			[
+				"ma",
+				"MaxDelta"
+			],
+			[
+				"light",
+				"lightSeeker"
+			],
+			[
+				"arbitrat",
+				"arbitrate"
+			],
+			[
+				"_pivo",
+				"_pivotRight"
+			],
+			[
+				"_piv",
+				"_pivotLeft"
+			],
+			[
+				"sp",
+				"speed"
+			],
+			[
+				"_p",
+				"_pivotCenter"
+			],
+			[
+				"M",
+				"MAX_DIFF"
+			],
+			[
+				"target",
+				"targetAngle"
+			],
+			[
+				"serv",
+				"servPin"
+			],
+			[
+				"step",
+				"stepWidth"
+			],
+			[
+				"cds",
+				"cdsPin"
+			],
+			[
+				"seria",
+				"serialCommand"
+			],
+			[
+				"St",
+				"String"
+			],
+			[
+				"_pi",
+				"_pivotLeft"
+			],
+			[
+				"Stop",
+				"stop"
+			],
+			[
+				"prin",
+				"print"
+			],
+			[
+				"spe",
+				"speed"
+			],
+			[
+				"dir",
+				"dir"
+			],
+			[
+				"speed",
+				"speed_l"
+			],
+			[
+				"_wheel",
+				"_wheelCirc"
+			],
+			[
+				"_pivot",
+				"_pivotLeft"
+			],
+			[
+				"drive",
+				"driveForward"
+			],
+			[
+				"pr",
+				"println"
+			],
+			[
+				"piv",
+				"pivotCenter"
+			],
+			[
+				"p",
+				"println"
+			],
+			[
+				"plo",
+				"plotpos"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"as",
+				"asciiz"
+			],
+			[
+				"element",
+				"elements"
+			],
+			[
+				"swa",
+				"swap1"
+			],
+			[
+				"sw",
+				"swap2"
+			],
+			[
+				"STR",
+				"STREQ1"
+			],
+			[
+				"Mode",
+				"ModelForm"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"person",
+				"person_id"
+			],
+			[
+				"ownfamil",
+				"ownfamilies"
+			],
+			[
+				"exc",
+				"exclude"
+			],
+			[
+				"in",
+				"in_value"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "libraries/Robot/Robot.cpp",
+			"settings":
+			{
+				"buffer_size": 18351,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lab6_a/lab6_a.ino",
+			"settings":
+			{
+				"buffer_size": 11014,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "libraries/Robot/Robot.h",
+			"settings":
+			{
+				"buffer_size": 2619,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"matla",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"matlab",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/lab7_a/lab7_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/Robot/Robot.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/Lab9_SemesterProject/LeaderBot/LeaderBot.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/Lab9_SemesterProject/FollowerBot/FollowerBot.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/lab8_a/lab8_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/Robot/Robot.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/Waypoint/Waypoint.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/Waypoint/Waypoint.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/Waypoint/keywords.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS/TinyGPS.cpp",
+		"/C/Users/Dave/AppData/Local/Temp/Temp1_Arduino-Tutorial-15-Files.zip/Schematics/README.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS/TinyGPS.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/lab6_a/lab6_a.ino",
+		"/D/Programs/Rainmeter/Skins/Enigma/Clock/Clock.ini",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Network/Network.inc",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Network/Network.ini",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Network/Network-Graph.ini",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Bandwidth/OLD.ini",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Bandwidth/Bandwidth-Graph.ini",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Bandwidth/Bandwidth.inc",
+		"/D/Programs/Rainmeter/Skins/Enigma/Sidebar/Bandwidth/Bandwidth.ini",
+		"/D/Programs/Rainmeter/Skins/Enigma/@Resources/User/Notes/Notes.txt",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Measures/DataLog_Traffic.lua",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Measures/Reader.lua",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Sidebar/Reader/Reader.ini",
+		"/C/Users/Dave/AppData/Roaming/Rainmeter/Rainmeter.stats",
+		"/D/Programs/RainMeter/Default.ini",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarSystem.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Sidebar/Network/Network.ini",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarCommon.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/OptionsFormat.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/Sidebar.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/OptionsLayout.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarCalendar.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarClock.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarGallery.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarMusic.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarNotes.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarReader.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarWeather.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarWorld.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/Taskbar.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/TaskbarCommon.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/TaskbarExtras.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/VariablesDefault.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/SidebarGcal.inc",
+		"/D/My Documents/Rainmeter/Skins/Enigma/Resources/Styles/Enigma Dark/Variables.inc",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/lab6_a/lab6_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/libraries/Robot/Robot.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/libraries/Robot/Robot.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS-13/examples/simple_test/simple_test.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS-13/examples/static_test/static_test.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS-13/examples/test_with_gps_device/test_with_gps_device.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS-13/TinyGPS.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/libraries/TinyGPS-13/TinyGPS.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/lab8_a/readme.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/lab8_a/gps_test_1.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/Lab9_SemesterProject/LeaderBot/readme.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/Lab9_SemesterProject/FollowerBot/readme.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/lab7_a/readme.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/Lab 7 algorithm",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/Lab 7 reference code.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/lab6_a/lab6_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/lab5_a/lab5_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/temp",
+		"/D/Dropbox/_SCHOOL/ECE-450/lab4_a/lab4_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/wernli_lab03_c/wernli_lab03_c.ino",
+		"/D/Dropbox/_SCHOOL/ECE-450/Git/contributors.txt",
+		"/D/Dropbox/PortableApps/Git/repos/bb101repo-practive/myquote",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/Robot/Robot.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/Robot/Robot.cpp",
+		"/D/Dropbox/PortableApps/Git/README.portable",
+		"/D/My Downloads/ECE450 - Lab6 notes",
+		"/D/My Downloads/ECE450 - Robot Operation Notes",
+		"/D/My Downloads/Design Narrative",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/libraries/ece450.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/libraries/readme.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/BigNumberMath/BigNumberMath.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/BigNumberMath/BigNumberMath.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/ECE450 SHARED/Robot/Robot.cpp",
+		"/D/Dropbox/_WORK/keys.txt",
+		"/D/Dropbox/_HOME/genealogy/myfile.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/lab5_b/lab5_b.ino",
+		"/D/Dropbox/_SCHOOL/ENGH-302/electric cars.htm",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/__disabled_Robot/Robot.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/__disabled_Robot/Robot.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/libraries/readme.txt",
+		"/D/Dropbox/_SCHOOL/ECE-450/Robot_h/Robot.cpp",
+		"/D/Dropbox/_SCHOOL/ECE-450/Robot_h/Robot.h",
+		"/D/Dropbox/_SCHOOL/ECE-450/lab4_a.ino",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/RealTimeFIR.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/next_x.m",
+		"/D/Dropbox/_WORK/Portfolio/David_Wernli-Resume_11-2011.txt",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/FreqResp.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/HanFreqResp.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/MultiPlot.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/Project2.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/ExamplePlots.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2/Next_y.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/FreqResp.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project2.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/HanFreqResp.m",
+		"/D/My Downloads/Project2.m",
+		"/D/My Downloads/HanFreqResp.m",
+		"/D/My Downloads/FreqResp.m",
+		"/C/Users/Dave/AppData/Local/Temp/Temp1_mem_mapped_David_Wernli.zip/project6.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/Comments.txt",
+		"/D/Dropbox/_SCHOOL/ECE-445/project6.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/project6.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/rij_datapath/instmem.vhd",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/project5.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/rij_example.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/project3.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/dwernli2_hw5_q2c.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/dwernli2_hw5_q3a.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/projec4.asm",
+		"/D/My Downloads/datamem(1).vhd",
+		"/D/My Downloads/regfile(1).vhd",
+		"/D/Dropbox/_SCHOOL/ECE-320/Project1.m",
+		"/D/Dropbox/_SCHOOL/_COMPLETED COURSES/ECE-220/Lab4/DW_lab4.m",
+		"/D/Dropbox/_SCHOOL/_COMPLETED COURSES/ECE-220/Lab4/Lab4_2_plots.m",
+		"/D/Dropbox/_SCHOOL/_COMPLETED COURSES/ECE-220/Lab5/Lab 5 220.doc",
+		"/D/Dropbox/_SCHOOL/_COMPLETED COURSES/ECE-220/Lab6/Lab6.m",
+		"/D/Dropbox/_SCHOOL/ECE-320/project.m",
+		"/D/Dropbox/_SCHOOL/_COMPLETED COURSES/ECE-220/Lab2/Func_1.m",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/dwernli2_hw5_q3b.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/dwernli2_hw5_q2a.asm",
+		"/D/Dropbox/_SCHOOL/ECE-445/_MIPS/dwernli2_hw5_q2b.asm"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"pidcal",
+			"distance",
+			"Serial10",
+			"Serial1",
+			"ss",
+			"course_to",
+			"GPSDB",
+			"get_",
+			"parse",
+			"course",
+			"travelTo",
+			"arbiter",
+			"graph",
+			"histog",
+			"dpi =",
+			" \");",
+			"_speed",
+			"diff",
+			"_wheelCirc",
+			"_wheel",
+			"Initialized",
+			"private",
+			"direction",
+			"_direction(char wheel[], int d",
+			"m2pin2",
+			"m2pin1",
+			"m2pinEN",
+			"m1pin2",
+			"m1pin1",
+			"mLpin1",
+			"m1pinEN",
+			"enPin",
+			"in2Pin",
+			"in1Pin",
+			"form",
+			"backg",
+			"left{",
+			"spouse",
+			"listfiel",
+			"manyto",
+			"image",
+			"lambda"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Serial1",
+			"Serial10",
+			"travel_to",
+			"mode",
+			"_Speed",
+			"_direction",
+			"mRpin2",
+			"mRpin1",
+			"mRpinEN",
+			"mLpin2",
+			"mLpin1",
+			"mLpinEN",
+			"m1pinEN",
+			"m1pin2",
+			"m1pin1"
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "libraries/Robot/Robot.cpp",
+					"settings":
+					{
+						"buffer_size": 18351,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1099,
+								1099
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "lab6_a/lab6_a.ino",
+					"settings":
+					{
+						"buffer_size": 11014,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11012,
+								10196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4428.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "libraries/Robot/Robot.h",
+					"settings":
+					{
+						"buffer_size": 2619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2350,
+								2350
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/D/Dropbox/_SCHOOL/ECE-450/Git/semester project.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
